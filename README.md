@@ -1,5 +1,8 @@
 # Chef’s Special Order System
 
+*A Quality Engineering portfolio project focused on deterministic state management and testable front-end architecture.*
+
+
 ![HTML5](https://img.shields.io/badge/HTML5-Structure-orange)
 ![CSS3](https://img.shields.io/badge/CSS3-Styling-blue)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
@@ -10,24 +13,30 @@
 
 ## Live Demo
 
-🔗 **View Live Application:**  
-[Live Demo Link Placeholder](https://your-live-site-link-here.com)
+🔗 **Open the Live Application**  
+https://awilkinson-qe.github.io/js-api-ticket-system/
 
 ---
 
 ## Overview
 
-The Chef’s Special Order System is a client-side web application that allows kitchen staff to generate daily specials based on available ingredients and manage active kitchen tickets in real time.
+Chef’s Special Order System is a client-side web application that enables kitchen staff to generate daily specials based on available ingredients and manage active kitchen tickets in real time.
 
-The application integrates with TheMealDB API to dynamically suggest meals and uses `sessionStorage` to maintain ticket state within a browser session.
+The application integrates with TheMealDB API to dynamically retrieve meal suggestions and uses `sessionStorage` for browser-scoped state management.
 
-This project demonstrates API integration, client-side state management, DOM manipulation, and defensive event handling using modern JavaScript (ES6).
+From a Quality Engineering perspective, the application emphasises:
+
+- Deterministic state management
+- Defensive event handling
+- Separation of state and rendering logic
+- Controlled API integration
+- UI consistency through deterministic full re-rendering from source state
 
 ---
 
 ## Application Preview
 
-![Chef Order System Screenshot](./assets/screenshot.png)
+![Chef Special Order System](Images/screenshot.png)
 
 ---
 
@@ -63,7 +72,7 @@ This project demonstrates API integration, client-side state management, DOM man
 ## How to Run Locally
 
 1. Clone or download the repository.
-2. Open `HTML/index.html` in your browser  
+2. Open `index.html` in your browser  
    **or**
 3. Use Live Server in VS Code.
 
@@ -82,14 +91,39 @@ Data persists only while the browser tab remains open.
 
 ---
 
-## Architectural Notes
+## Quality & Architectural Notes
 
-- Defensive DOM checks prevent runtime errors.  
-- State is separated from rendering logic.  
-- Rendering is rebuilt from state rather than manually patched.  
-- Periodic refresh updates wait-time indicators without reloading the page.  
+- Defensive DOM checks prevent runtime errors.
+- State is isolated from presentation logic to improve testability.
+- UI rendering is derived from state rather than manually mutated.
+- API responses are validated before ticket creation.
+- Periodic refresh updates wait-time indicators without page reloads.
+- - Session-scoped storage prevents unintended cross-session state leakage.
 
-In a production environment, persistent storage and backend services would replace `sessionStorage`.
+In a production environment, persistent storage, structured logging, and automated test coverage would be introduced.
+
+---
+
+## Testability Considerations
+
+The application was designed with quality in mind:
+
+- Clear separation between data transformation and UI rendering.
+- Predictable state transitions.
+- Minimal side effects within event handlers.
+- Deterministic ticket number generation.
+- Encapsulated storage access.
+
+These design decisions allow the core logic to be unit tested independently from the UI layer.
+
+---
+
+## Future Enhancements
+
+- Replace `sessionStorage` with persistent backend storage
+- Add priority levels and SLA tracking
+- Introduce filtering and search functionality
+- Implement unit testing for core logic
 
 ---
 
