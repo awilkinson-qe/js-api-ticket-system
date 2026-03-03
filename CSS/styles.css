@@ -1,0 +1,54 @@
+#orderStatusMessage {
+  min-height: 1.5rem; /* Prevent layout shift when messages appear */
+}
+
+/* Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont,
+               'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Hero banner (background image + dark overlay for text contrast) */
+header.hero {
+  background-image: url("../Images/kitchen-bg.jpg"); /* Match folder case */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 3rem;
+  border-radius: 0.75rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+/* Dark overlay to improve text readability */
+header.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 0.75rem;
+}
+
+/* Ensure content appears above overlay */
+header.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+header.hero h1 { font-weight: 600; }
+header.hero p  { font-weight: 400; }
+
+/* Live time display styling */
+#currentTimeCard {
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+/* Highlight high-priority tickets */
+.ticket-priority {
+  border-left: 4px solid #e03131;
+  padding-left: 0.75rem;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
